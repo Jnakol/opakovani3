@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <?= $this->renderSection('content') ?>
     </div>
     <?= $this->include('layout/js') ?>
