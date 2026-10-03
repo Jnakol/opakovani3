@@ -6,11 +6,10 @@ echo ($this->section('content'));
 <div class="row">
     <div class="col-md-12 pt-5">
         <h1 class="text-center">Příž - Nice</h1>
-        <p class="text-center">Vítejte na naší stránce!</p>
     </div>
 </div>
 <div class="row">
-    <div class="col">
+    <div class="col-md-11 mx-auto">
 <?php
 /**
  * @var array $priz
@@ -44,7 +43,13 @@ echo ($this->section('content'));
             'class' => 'img-fluid',
             'style' => 'max-height: 30px;'
         );    
-       $table->addRow(img($imgData), $row->real_name, $row->year, $row->start_date, $row->end_date, round($row->total_distance, 0) . 'km', anchor(base_url('race/' . $row->id), 'Detail', ['class' => 'btn btn-primary btn-sm']));
+       $table->addRow(img($imgData),
+       $row->real_name,
+       $row->year,
+       $row->start_date,
+       $row->end_date,
+       round($row->total_distance, 0) . 'km',
+       anchor(base_url('race/' . $row->id), 'Detail', ['class' => 'btn btn-secondary btn-sm']));
     } 
     echo $table->generate();
     

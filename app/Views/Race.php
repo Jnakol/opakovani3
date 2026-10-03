@@ -8,9 +8,14 @@ echo ($this->section('content'));
         <h1 class="text-center"><?=esc($heder[0]->race_name) . ' ' . esc($heder[0]->year)?></h1>
     </div>
 </div>
+<div class="row py-1">
+    <div class="col text-center">
+        <a class="no-text-decoration btn btn-secondary btn-sm" href="<?=base_url("")?>">Zpět na hlavní stránku</a>
+    </div>
+</div>
 
 <div class="row">
-    <div class="col-11 mx-auto">
+    <div class="col-md-11 mx-auto">
         <?php
 /**
  * @var array $stages
@@ -44,7 +49,7 @@ echo ($this->section('content'));
             $row->vertical_meters . ' m',
             $row->name,
             $row->first_name . ' ' . $row->last_name,
-            anchor(base_url('result/' . $row->id), 'Výsledky', ['class' => 'btn btn-primary btn-sm'])
+            anchor(base_url('result/' . $row->id), 'Výsledky', ['class' => 'btn btn-secondary btn-sm'])
             );}
             echo ($table->generate());
             ?>
