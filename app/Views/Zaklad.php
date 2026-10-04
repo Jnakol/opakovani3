@@ -4,7 +4,7 @@ echo ($this->section('content'));
 ?>
 
 <div class="row">
-    <div class="col-md-12 pt-5">
+    <div class="col-md-12 py-5">
         <h1 class="text-center">Příž - Nice</h1>
     </div>
 </div>
@@ -49,11 +49,17 @@ echo ($this->section('content'));
        $row->start_date,
        $row->end_date,
        round($row->total_distance, 0) . 'km',
-       anchor(base_url('race/' . $row->id), 'Detail', ['class' => 'btn btn-secondary btn-sm']));
+       anchor(base_url('Zavod/' . $row->id), 'Detail', ['class' => 'btn btn-secondary btn-sm']));
     } 
     echo $table->generate();
-    
     ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 text-center mt-4">
+        <a href="<?= base_url('Pridat'); ?>" class="btn btn-outline-primary btn-sm">
+            <i class="fa-solid fa-plus me-1"></i> Přidat nový ročník závodu
+        </a>
     </div>
 </div>
 

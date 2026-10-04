@@ -19,8 +19,13 @@ echo ($this->section('content'));
         <?php
 /**
  * @var array $stages
- * @var array $resultTypesByStage
  */
+
+    if(!empty($row->first_name) && !empty($row->last_name)) {
+                $row->first_name . ' ' . $row->last_name;
+            } else {
+                '-';
+            }
     $table = new \CodeIgniter\View\Table();
         $table->setTemplate([
             'table_open' => '<table class="table table-bordered table-striped table-hover">',
@@ -42,14 +47,15 @@ echo ($this->section('content'));
             'cell_alt_end' => '</td>',
             'table_close' => '</table>',]);
         
-        $table->setHeading('Etapa', 'Datum', 'Délka', 'Převýšení', 'Typ etapy', 'Vítěz etapy', 'Výsledky');
+        $table->setHeading('Etapa', 'Datum', 'Délka', 'Převýšení', 'Typ etapy', 'Vítěz etapy', 'Výsledky v etapě', 'Výsledky po etapě');
         foreach ($stage as $row) {
-            $table->addRow($row->number,
-            $row->date, $row->distance . ' km',
-            $row->vertical_meters . ' m',
-            $row->name,
-            $row->first_name . ' ' . $row->last_name,
-            anchor(base_url('result/' . $row->id), 'Výsledky', ['class' => 'btn btn-secondary btn-sm'])
+            $table->addRow($row->id,
+                $row->date, $row->distance . ' km',
+                $row->vertical_meters . ' m',
+                $row->name,
+                trim(($row->first_name ?? '') . ' ' . ($row->last_name ?? '')) ?: '-',
+                anchor(base_url('Vysledky/' . $row->id . '/1'), 'Výsledky v etapě', ['class' => 'btn btn-secondary btn-sm']),
+                anchor(base_url('Vysledky/' . $row->id . '/4'), 'Výsledky po etapě', ['class' => 'btn btn-secondary btn-sm'])
             );}
             echo ($table->generate());
             ?>

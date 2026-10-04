@@ -12,7 +12,13 @@ class RaceC extends BaseController
     public function index($id)
     {
         $stage = new Stage();
-        $stageData = $stage->where('id_race_year', $id)
+        $stageData = $stage->select('
+            fin_stage.*, 
+            fin_parcour_type.name as name,
+            fin_rider.first_name as winner_first,
+            fin_rider.last_name as winner_last,
+            fin_rider.photo as winner_photo')
+        ->where('id_race_year', $id)
         ->join('parcour_type', 'stage.parcour_type = parcour_type.id', 'left')
         ->join('result', 'stage.id = result.id_stage AND result.type_result = 1 AND result.rank = 1', 'left')
         ->join('rider', 'result.id_rider = rider.id', 'left')

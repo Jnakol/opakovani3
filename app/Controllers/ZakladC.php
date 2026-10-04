@@ -14,7 +14,7 @@ class ZakladC extends BaseController
         $raceYear = new RaceYear();
         $priz_data = $raceYear->select('race_year.*, SUM(s.distance) as total_distance')
             ->join('stage s', 'race_year.id = s.id_race_year', 'left')
-            ->where('id_race', 124)
+            ->like('race_year.real_name', 'Paris - Nice')
             ->groupBy('race_year.id')
             ->orderBy('race_year.year', 'DESC')
             ->findAll();
