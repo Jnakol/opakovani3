@@ -49,7 +49,7 @@ echo ($this->section('content'));
         
         $table->setHeading('Etapa', 'Datum', 'Délka', 'Převýšení', 'Typ etapy', 'Vítěz etapy', 'Výsledky v etapě', 'Výsledky po etapě');
         foreach ($stage as $row) {
-            $table->addRow($row->id,
+            $table->addRow($row->number,
                 $row->date, $row->distance . ' km',
                 $row->vertical_meters . ' m',
                 $row->name,
