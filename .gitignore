@@ -44,7 +44,6 @@ $RECYCLE.BIN/
 .env
 .vagrant
 /node_modules
-/img
 Vagrantfile
 
 #-------------------------
@@ -79,6 +78,7 @@ php_errors.log
 # Test Files
 #-------------------------
 /tests/coverage*
+img
 
 # Don't save phpunit under version control.
 /phpunit
