@@ -27,6 +27,6 @@ class VysledkyC extends BaseController
             'type' => $Type,
             'stage' => $stageData,
         ];
-        return view('vysledky', $data);
+        return view('Vysledky', $data);
     }
 }
