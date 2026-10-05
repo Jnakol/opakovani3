@@ -17,14 +17,14 @@
             text-decoration: none;
         }
     </style>
-    <?= $this->include('layout/css') ?>
+    <?= $this->include('Layout/css') ?>
 </head>
 
 <body>
     <div class="container-fluid">
         <?= $this->renderSection('content') ?>
     </div>
-    <?= $this->include('layout/js') ?>
+    <?= $this->include('Layout/js') ?>
 </body>
 
 </html>
